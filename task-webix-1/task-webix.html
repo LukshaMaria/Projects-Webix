@@ -1,0 +1,63 @@
+<!doctype html>
+
+<head>
+	<meta charset="utf-8">
+	<title>TASK-WEBIX</title>
+	<script type="text/javascript" src="http://cdn.webix.com/edge/webix.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://cdn.webix.com/edge/webix.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="http://cdn.webix.com/materialdesignicons/5.8.95/css/materialdesignicons.min.css"
+		type="text/css" charset="utf-8">
+	<script type="text/javascript" src="./testdata.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript" charset="utf-8">
+		var toolbar = {
+			view: "toolbar",
+			elements: [
+				{ view: "label", css: "label_toolbar", label: "My App" },
+				{},
+				{ view: "button", css: "webix_transparent", type: "icon", icon: "mdi mdi-account", label: "Profile", width: 100 },
+			],
+			css: "webix_dark", paddingY: 1, height: 40
+		};
+		var menu = {
+			rows: [
+				{ view: "list", css: "list", autoheight: true, data: ["Dashboards", "Users", "Products", "Locations"], width: 300 },
+				{ css: "list" },
+				{ view: "button", css: "list profile_button", type: "icon", icon: "mdi mdi-check", label: "Connected", width: 200, align: "center" },
+			]
+		};
+		var table = { view: "datatable", scroll: "y", autoConfig: true, data: small_film_set, autoConfig: true, autoheight: true };
+		var form = {
+			view: "form",
+			id: "form1",
+			elements: [
+				{ type: "section", template: "EDIT FILMS" },
+				{ view: "text", name: "title", label: "Title" },
+				{ view: "text", name: "year", label: "Year" },
+				{ view: "text", name: "rating", label: "Rating" },
+				{ view: "text", name: "votes", label: "Votes" },
+				{
+					margin: 5, cols: [
+						{ view: "button", value: "Add new", css: "webix_primary", click: function () { $$("form1").save() } },
+						{ view: "button", value: "Clear", click: function () { $$("form1").clear() } }
+					]
+				},
+			],
+			width: 400
+		};
+		webix.ready(function () {
+			webix.ui({
+				rows: [
+					toolbar,
+					{ cols: [menu, { view: "resizer" }, table, form], height: 650 },
+					{ view: "label", label: "The software is provided by <a href='#'>https://webix.com</a>. All right reserved (c)", align: "center" },
+				]
+			});
+		})
+	</script>
+</body>
+
+</html>

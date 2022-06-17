@@ -1,0 +1,6 @@
+.list, .profile_button .webix_button{
+    background-color: #eeeeee;
+}
+.profile_button .webix_button{
+    color:green;
+}
