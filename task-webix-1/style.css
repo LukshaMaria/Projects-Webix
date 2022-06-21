@@ -1,4 +1,5 @@
-.list, .profile_button .webix_button{
+.list, 
+.list .webix_list_item{
     background-color: #eeeeee;
 }
 .profile_button .webix_button{
