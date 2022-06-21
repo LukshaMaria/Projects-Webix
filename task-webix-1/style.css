@@ -2,6 +2,6 @@
 .list .webix_list_item{
     background-color: #eeeeee;
 }
-.profile_button .webix_button{
+.connected .webix_el_box{
     color:green;
 }
