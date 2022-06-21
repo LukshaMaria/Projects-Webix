@@ -27,7 +27,7 @@
 			rows: [
 				{ view: "list", css: "list", autoheight: true, data: ["Dashboards", "Users", "Products", "Locations"], width: 300 },
 				{ css: "list" },
-				{ view: "button", css: "list profile_button", type: "icon", icon: "mdi mdi-check", label: "Connected", width: 200, align: "center" },
+				{ view: "label", css: "connected", align: "center", label: `<span class="webix_icon mdi mdi-check"></span> Connected`, },
 			]
 		};
 		var table = { view: "datatable", scroll: "y", autoConfig: true, data: small_film_set, autoConfig: true};
@@ -42,7 +42,7 @@
 				{ view: "text", name: "votes", label: "Votes" },
 				{
 					margin: 5, cols: [
-						{ view: "button", value: "Add new", css: "webix_primary", click: function () { $$("form1").save() } },
+						{ view: "button", value: "Add new", css: "webix_primary" },
 						{ view: "button", value: "Clear", click: function () { $$("form1").clear() } }
 					]
 				},
