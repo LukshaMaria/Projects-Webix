@@ -29,7 +29,7 @@
 				{ view: "button", css: "list profile_button", type: "icon", icon: "mdi mdi-check", label: "Connected", width: 200, align: "center" },
 			]
 		};
-		var table = { view: "datatable", scroll: "y", autoConfig: true, data: small_film_set, autoConfig: true, autoheight: true };
+		var table = { view: "datatable", scroll: "y", autoConfig: true, data: small_film_set, autoConfig: true};
 		var form = {
 			view: "form",
 			id: "form1",
@@ -45,6 +45,7 @@
 						{ view: "button", value: "Clear", click: function () { $$("form1").clear() } }
 					]
 				},
+				{},
 			],
 			width: 400
 		};
@@ -52,7 +53,7 @@
 			webix.ui({
 				rows: [
 					toolbar,
-					{ cols: [menu, { view: "resizer" }, table, form], height: 650 },
+					{ cols: [menu, { view: "resizer" }, table, form]},
 					{ view: "label", label: "The software is provided by <a href='#'>https://webix.com</a>. All right reserved (c)", align: "center" },
 				]
 			});
