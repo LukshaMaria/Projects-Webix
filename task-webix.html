@@ -1,0 +1,82 @@
+<!doctype html>
+
+<head>
+	<meta charset="utf-8">
+	<title>TASK-WEBIX-1</title>
+	<link rel="stylesheet" type="text/css" href="http://cdn.webix.com/edge/webix.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="http://cdn.webix.com/materialdesignicons/5.8.95/css/materialdesignicons.min.css"
+		type="text/css" charset="utf-8">
+	<script type="text/javascript" src="http://cdn.webix.com/edge/webix.js"></script>
+	<script type="text/javascript" src="testdata.js"></script>
+	<link rel="stylesheet" href="../webix/codebase/webix.css" type="text/css">
+	<script src="../webix/codebase/webix.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<script type="text/javascript" charset="utf-8">
+		webix.protoUI({
+			name: "editList",
+			view: "button",
+			$init:function(config){ 
+				var state = config.state;
+				webix.html.addCss(this.$view, "state-"+state);
+			}
+		}, webix.ui.button);
+
+		webix.ready(function () {
+
+			webix.ui({
+				view: "toolbar",
+				rows: [
+					{
+						cols: [
+							{
+								view: "editList", width: 100, state:0, value: "Off",
+								on: {
+									onItemClick: function (state) {
+										var dataview = $$("dataview1");
+										dataview.sort("id", "asc");
+									}
+								}
+							},
+							{
+								view: "editList", width: 100, state:1, value: "Sort Asc",
+								on: {
+									onItemClick: function (state) {
+										var dataview = $$("dataview1");
+										dataview.sort("year", "asc");
+									}
+								}
+							},
+							{
+								view: "editList", width: 100, state:2, value: "Sort Desc",
+								on: {
+									onItemClick: function (state) {
+										var dataview = $$("dataview1");
+										dataview.sort("year", "desc");
+									}
+								}
+							},
+						]
+					},
+					{
+						view: "dataview",
+						id: "dataview1",
+						scroll: false,
+						xCount: 3,
+						yCount: 3,
+						type: {
+							width: "auto",
+							height: 50
+						},
+						template: "<b>#rank#.#title#</b> <br> Year: #year#, rank: #rank#",
+						data: small_film_set
+					},
+				]
+			});
+		});
+	</script>
+</body>
+
+</html>
