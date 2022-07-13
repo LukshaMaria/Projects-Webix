@@ -1,0 +1,7 @@
+.list, 
+.list .webix_list_item{
+    background-color: #eeeeee;
+}
+.connected .webix_el_box{
+    color:green;
+}
