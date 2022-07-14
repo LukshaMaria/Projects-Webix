@@ -15,49 +15,105 @@
 	<script type="text/javascript" charset="utf-8">
 		var toolbar = {
 			view: "toolbar",
+			css: "webix_dark",
 			elements: [
 				{ view: "label", css: "label_toolbar", label: "My App" },
 				{},
-				{ view: "button", css: "webix_transparent", type: "icon", icon: "mdi mdi-account", label: "Profile", width: 100 },
-			],
-			css: "webix_dark", paddingY: 1, height: 40
+				{
+					view: "menu", subMenuPos: "down", layout: "y", data: [{ value: "Profile", css: "webix_transparent", type: "icon", icon: "mdi mdi-account", submenu: ["Settings", "Log Out"] }],
+					type: {
+						subsign: true,
+						height: 50,
+						width: 100
+					}
+				}
+			]
 		};
 		var menu = {
-			css:"list",
+			css: "list",
 			rows: [
 				{ view: "list", css: "list", autoheight: true, data: ["Dashboards", "Users", "Products", "Locations"], width: 300 },
 				{ css: "list" },
 				{ view: "label", css: "connected", align: "center", label: `<span class="webix_icon mdi mdi-check"></span> Connected`, },
 			]
 		};
-		var table = { view: "datatable", scroll: "y", autoConfig: true, data: small_film_set, autoConfig: true};
+		var table = { view: "datatable", id: "datatable1", scroll: "y", autoConfig: true, data: small_film_set, autoConfig: true };
 		var form = {
 			view: "form",
 			id: "form1",
 			elements: [
 				{ type: "section", template: "EDIT FILMS" },
 				{ view: "text", name: "title", label: "Title" },
-				{ view: "text", name: "year", label: "Year" },
+				{ view: "text", name: "year", label: "Year", invalidMessage: "Enter year between 1700 and 2022" },
 				{ view: "text", name: "rating", label: "Rating" },
 				{ view: "text", name: "votes", label: "Votes" },
+				{ view: "text", name: "rank", label: "Rank" },
+				{ view: "text", name: "category", label: "Category" },
 				{
 					margin: 5, cols: [
-						{ view: "button", value: "Add new", css: "webix_primary"},
-						{ view: "button", value: "Clear", click: function () { $$("form1").clear() } }
+						{
+							view: "button", value: "Add new", css: "webix_primary", click: function () {
+								var result = $$("form1").validate();
+								console.log(result);
+								if (result) {
+									$$("form1").save();
+									webix.message("Information add to datatable!");
+								}
+								else {
+									webix.message("Information don't add to datatable!");
+								}
+							}
+						},
+						{
+							view: "button", value: "Clear", click: function () {
+								webix.confirm({
+									title: "Clear form",
+									text: "Do you want to clear information in form?"
+								}).then(
+									function () {
+										webix.message("Confirmed");
+										$$("form1").clear(); 
+										$$("form1").clearValidation();
+									},
+									function () {
+										webix.message("Rejected");
+									}
+								);
+							}
+						},
 					]
 				},
 				{},
 			],
+			rules: {
+				title: webix.rules.isNotEmpty,
+				year: function (value) {
+					return (value > 1700) && (value < 2022);
+				},
+				votes: function (value) {
+					return value < 100000;
+				},
+				rating: webix.rules.isNotEmpty,
+				rating: function (value) {
+					return (value != 0);
+				},
+			},
+			on: {
+				onValidationError: function (key, data) {
+					webix.message({ text: key + " field is incorrect", type: "error" });
+				}
+			},
 			width: 400
 		};
 		webix.ready(function () {
 			webix.ui({
 				rows: [
 					toolbar,
-					{ cols: [menu, { view: "resizer" }, table, form]},
+					{ cols: [menu, { view: "resizer" }, table, form] },
 					{ view: "label", label: "The software is provided by <a href='#'>https://webix.com</a>. All right reserved (c)", align: "center" },
 				]
 			});
+			$$("form1").bind("datatable1")
 		})
 	</script>
 </body>
