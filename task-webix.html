@@ -27,25 +27,10 @@
 				width: 100, 
 				click(){
 					const node = this.getNode();
-					popup1.show(node);
+					$$("popup1").show(node);
 				}},
 			]
 		};
-		const popup1 = webix.ui({
-			view: "popup",
-			id: "popup1",
-			width: 200,
-			body: {
-				view: "list",
-				data: [
-					{ id: "1", title: "Settings" },
-					{ id: "2", title: "Log out" }
-				],
-				template: "#title#",
-				autoheight: true,
-				select: true
-			}
-		});
 		const menu = {
 			css: "list",
 			rows: [
@@ -118,6 +103,21 @@
 			width: 400
 		};
 		webix.ready(function () {
+			const popup1 = webix.ui({
+				view: "popup",
+				id: "popup1",
+				width: 200,
+				body: {
+					view: "list",
+					data: [
+						{ id: "1", title: "Settings" },
+						{ id: "2", title: "Log out" }
+					],
+				template: "#title#",
+				autoheight: true,
+				select: true
+				}
+			});
 			webix.ui({
 				rows: [
 					toolbar,
