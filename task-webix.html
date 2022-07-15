@@ -87,16 +87,10 @@
 			],
 			rules: {
 				title: webix.rules.isNotEmpty,
-				year: function (value) {
-					return (value > 1700) && (value < 2022);
-				},
-				votes: function (value) {
-					return value < 100000;
-				},
+				year: (value) => (value > 1700) && (value < 2022),
+				votes: (value) => value < 100000,
 				rating: webix.rules.isNotEmpty,
-				rating: function (value) {
-					return (value != 0);
-				},
+				rating: (value) => (value != 0),
 			},
 			on: {
 				onValidationError: function (key, data) {
