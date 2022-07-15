@@ -13,7 +13,7 @@
 
 <body>
 	<script type="text/javascript" charset="utf-8">
-		let toolbar = {
+		const toolbar = {
 			view: "toolbar",
 			css: "webix_dark",
 			elements: [
@@ -29,7 +29,7 @@
 				}
 			]
 		};
-		let menu = {
+		const menu = {
 			css: "list",
 			rows: [
 				{ view: "list", css: "list", autoheight: true, data: ["Dashboards", "Users", "Products", "Locations"], width: 300 },
@@ -37,8 +37,8 @@
 				{ view: "label", css: "connected", align: "center", label: `<span class="webix_icon mdi mdi-check"></span> Connected`, },
 			]
 		};
-		let table = { view: "datatable", id: "datatable1", scroll: "y", autoConfig: true, data: small_film_set, autoConfig: true };
-		let form = {
+		const table = { view: "datatable", id: "datatable1", scroll: "y", autoConfig: true, data: small_film_set, autoConfig: true };
+		const form = {
 			view: "form",
 			id: "form1",
 			elements: [
