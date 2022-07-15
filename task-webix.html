@@ -66,14 +66,15 @@
 						},
 						{
 							view: "button", value: "Clear", click: function () {
+								const form = $$("form1");
 								webix.confirm({
 									title: "Clear form",
 									text: "Do you want to clear information in form?"
 								}).then(
 									function () {
 										webix.message("Confirmed");
-										$$("form1").clear(); 
-										$$("form1").clearValidation();
+										form .clear(); 
+										form .clearValidation();
 									},
 									function () {
 										webix.message("Rejected");
