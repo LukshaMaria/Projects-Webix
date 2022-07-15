@@ -19,16 +19,33 @@
 			elements: [
 				{ view: "label", css: "label_toolbar", label: "My App" },
 				{},
-				{
-					view: "menu", subMenuPos: "down", layout: "y", data: [{ value: "Profile", css: "webix_transparent", type: "icon", icon: "mdi mdi-account", submenu: ["Settings", "Log Out"] }],
-					type: {
-						subsign: true,
-						height: 50,
-						width: 100
-					}
-				}
+				{ view: "button", 
+				css: "webix_transparent", 
+				type: "icon", 
+				icon: "mdi mdi-account", 
+				label: "Profile", 
+				width: 100, 
+				click(){
+					const node = this.getNode();
+					popup1.show(node);
+				}},
 			]
 		};
+		const popup1 = webix.ui({
+			view: "popup",
+			id: "popup1",
+			width: 200,
+			body: {
+				view: "list",
+				data: [
+					{ id: "1", title: "Settings" },
+					{ id: "2", title: "Log out" }
+				],
+				template: "#title#",
+				autoheight: true,
+				select: true
+			}
+		});
 		const menu = {
 			css: "list",
 			rows: [
