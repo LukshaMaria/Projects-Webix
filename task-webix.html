@@ -53,10 +53,10 @@
 					margin: 5, cols: [
 						{
 							view: "button", value: "Add new", css: "webix_primary", click: function () {
-								var result = $$("form1").validate();
-								console.log(result);
-								if (result) {
-									$$("form1").save();
+								const form = $$("form1");
+								console.log(form.validate());
+								if (form.validate()) {
+									form.save();
 									webix.message("Information was added to datatable!");
 								}
 								else {
