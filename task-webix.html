@@ -1,133 +1,37 @@
 <!doctype html>
 
 <head>
-	<meta charset="utf-8">
-	<title>TASK-WEBIX</title>
-	<script type="text/javascript" src="http://cdn.webix.com/edge/webix.js"></script>
-	<link rel="stylesheet" type="text/css" href="http://cdn.webix.com/edge/webix.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="http://cdn.webix.com/materialdesignicons/5.8.95/css/materialdesignicons.min.css"
-		type="text/css" charset="utf-8">
-	<script type="text/javascript" src="./testdata.js"></script>
+    <meta charset="utf-8">
+    <title>TASK-WEBIX</title>
+    <script type="text/javascript" src="http://cdn.webix.com/edge/webix.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.webix.com/edge/webix.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="http://cdn.webix.com/materialdesignicons/5.8.95/css/materialdesignicons.min.css"
+        type="text/css" charset="utf-8">
+    <style>
+        .myhover {
+            background-color: rgb(157, 157, 157);
+        }
+
+        .colls_css {
+            background-color: rgb(164, 164, 164);
+        }
+
+        .highlight {
+            background-color: lightgreen;
+        }
+    </style>
 </head>
 
 <body>
-	<script type="text/javascript" charset="utf-8">
-		const toolbar = {
-			view: "toolbar",
-			css: "webix_dark",
-			elements: [
-				{ view: "label", css: "label_toolbar", label: "My App" },
-				{},
-				{ view: "button", 
-				css: "webix_transparent", 
-				type: "icon", 
-				icon: "mdi mdi-account", 
-				label: "Profile", 
-				width: 100, 
-				click(){
-					const node = this.getNode();
-					$$("popup1").show(node);
-				}},
-			]
-		};
-		const menu = {
-			css: "list",
-			rows: [
-				{ view: "list", css: "list", autoheight: true, data: ["Dashboards", "Users", "Products", "Locations"], width: 300 },
-				{ css: "list" },
-				{ view: "label", css: "connected", align: "center", label: `<span class="webix_icon mdi mdi-check"></span> Connected`, },
-			]
-		};
-		const table = { view: "datatable", id: "datatable1", scroll: "y", autoConfig: true, data: small_film_set, autoConfig: true };
-		const form = {
-			view: "form",
-			id: "form1",
-			elements: [
-				{ type: "section", template: "EDIT FILMS" },
-				{ view: "text", name: "title", label: "Title" },
-				{ view: "text", name: "year", label: "Year", invalidMessage: "Enter year between 1700 and 2022" },
-				{ view: "text", name: "rating", label: "Rating" },
-				{ view: "text", name: "votes", label: "Votes" },
-				{ view: "text", name: "rank", label: "Rank" },
-				{ view: "text", name: "category", label: "Category" },
-				{
-					margin: 5, cols: [
-						{
-							view: "button", value: "Save", css: "webix_primary", click: function () {
-								const form = $$("form1");
-								console.log(form.validate());
-								if (form.validate()) {
-									form.save();
-									webix.message("Information was added to datatable!");
-								}
-								else {
-									webix.message("Information wasn't added to datatable!");
-								}
-							}
-						},
-						{
-							view: "button", value: "Clear", click: function () {
-								const form = $$("form1");
-								webix.confirm({
-									title: "Clear form",
-									text: "Do you want to clear information in form?"
-								}).then(
-									function () {
-										webix.message("Confirmed");
-										form .clear(); 
-										form .clearValidation();
-									},
-									function () {
-										webix.message("Rejected");
-									}
-								);
-							}
-						},
-					]
-				},
-				{},
-			],
-			rules: {
-				title: webix.rules.isNotEmpty,
-				year: (value) => (value > 1700) && (value < 2022),
-				votes: (value) => value < 100000,
-				rating: webix.rules.isNotEmpty,
-				rating: (value) => (value != 0),
-			},
-			on: {
-				onValidationError: function (key, data) {
-					webix.message({ text: key + " field is incorrect", type: "error" });
-				}
-			},
-			width: 400
-		};
-		webix.ready(function () {
-			const popup1 = webix.ui({
-				view: "popup",
-				id: "popup1",
-				width: 200,
-				body: {
-					view: "list",
-					data: [
-						{ id: "1", title: "Settings" },
-						{ id: "2", title: "Log out" }
-					],
-				template: "#title#",
-				autoheight: true,
-				select: true
-				}
-			});
-			webix.ui({
-				rows: [
-					toolbar,
-					{ cols: [menu, { view: "resizer" }, table, form] },
-					{ view: "label", label: "The software is provided by <a href='#'>https://webix.com</a>. All right reserved (c)", align: "center" },
-				]
-			});
-			$$("form1").bind("datatable1")
-		})
-	</script>
+    <script type="text/javascript" src="modules/menu.js"></script>
+    <script type="text/javascript" src="modules/toolbar.js"></script>
+    <script type="text/javascript" src="modules/maintable.js"></script>
+    <script type="text/javascript" src="modules/producttable.js"></script>
+    <script type="text/javascript" src="modules/usertable.js"></script>
+    <script type="text/javascript" src="modules/forms.js"></script>
+    <script type="text/javascript" src="modules/charts.js"></script>
+    <script type="text/javascript" src="main.js"></script>
 </body>
 
 </html>
