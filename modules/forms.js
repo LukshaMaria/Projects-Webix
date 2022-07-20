@@ -13,19 +13,20 @@ const form = {
         {
             margin: 5, cols: [
                 {
-                    view: "button", value: "Add new", css: "webix_primary", click: function () {
+                    view: "button", value: "Save", click: function () {
+                        const list = $$("datatable1");
                         const form = $$("form1");
-                        console.log(form.validate());
-                        if (form.validate()) {
-                            form.save();
-                            webix.message("Information add to datatable!");
+                        const item_data = form.getValues();
+                        if (item_data.id) {
+                            list.updateItem(item_data.id, item_data);
                         }
                         else {
-                            webix.message("Information don't add to datatable!");
+                            list.add(item_data);
                         }
+
                     }
                 },
-                {
+                                {
                     view: "button", value: "Clear", click: function () {
                         const form = $$("form1");
                         webix.confirm({
@@ -41,31 +42,6 @@ const form = {
                                 webix.message("Rejected");
                             }
                         );
-                    }
-                },
-                {
-                    view: "button", value: "Save", click: function () {
-                        const list = $$("datatable1");
-                        const form = $$("form1");
-                        const item_data = form.getValues();
-                        if (item_data.id) {
-                            list.updateItem(item_data.id, item_data);
-                        }
-                        else {
-                            list.add(item_data);
-                        }
-
-                    }
-                },
-                {
-                    view: "button", value: "Delete", click: function () {
-                        const list = $$("datatable1");
-                        const item_id = list.getSelectedId();
-                        if (item_id) {
-                            webix.confirm("Do you want to delete this item?", "confirm-warning").then(function () {
-                                list.remove(item_id);
-                            });
-                        }
                     }
                 },
             ]
