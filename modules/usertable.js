@@ -15,7 +15,7 @@ const usertable =
     {
         id: "usertable1",
         view: "datatable",
-        url: "http://localhost/Projects-Webix/data/users.js",
+        url: "./data/users.js",
         select: true,
         columns: [
             { id: "id", header: "Id", width: 50 },
