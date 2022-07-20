@@ -5,9 +5,7 @@ const maintable =
     view: "datatable",
     url: "./data/data.js",
     scroll: "y",
-    select: true,
-    topSplit: 2,
-    navigation: true,
+    select:true,
     columns: [
         { id: "id", css: "colls_css", header: "Id", width: 50 },
         { id: "title", header: [{ text: "Title" }, { content: "textFilter" }], fillspace: true, sort: "string", width: 250 },
