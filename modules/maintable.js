@@ -26,3 +26,4 @@ const maintable =
         }
     },
 };
+export default maintable;
