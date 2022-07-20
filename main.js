@@ -15,7 +15,7 @@ const mainpart = {
         { id: "Dashboards", cols: [maintable, form] },
         { id: "Users", cols: [usertable, userchart] },
         { id: "Products", cols: [producttable] },
-        { id: "Locations", template: "" }
+        { id: "Admin", template: "" }
     ]
 };
 webix.ready(function () {
