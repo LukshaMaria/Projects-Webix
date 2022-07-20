@@ -20,9 +20,11 @@ const maintable =
     ],
     onClick: {
         "wxi-trash": function (e, id) {
-            this.remove(id);
-            return false;
-        }
+            const list = $$("datatable1");
+            webix.confirm("Do you want to delete this item?", "confirm-warning").then(function () {
+                list.remove(id);
+                return false;
+       });
     },
 };
 export default maintable;
