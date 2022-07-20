@@ -15,3 +15,4 @@ const userchart = {
         template: "#age#"
     }
 };
+export default userchart;
