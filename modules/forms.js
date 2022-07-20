@@ -13,7 +13,7 @@ const form = {
         {
             margin: 5, cols: [
                 {
-                    view: "button", value: "Save", click: function () {
+                    view: "button", value: "Save", css:"webix_primary", click: function () {
                         const list = $$("datatable1");
                         const form = $$("form1");
                         const item_data = form.getValues();
