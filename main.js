@@ -36,5 +36,4 @@ webix.ready(function () {
         ]
     });
     $$("list1").select("Dashboards");
-    $$("form1").bind("datatable1");
 })
