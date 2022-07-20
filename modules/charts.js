@@ -1,6 +1,6 @@
 const userchart = {
     view: "chart",
-    url: "http://localhost/Projects-Webix/data/users.js",
+    url: "./data/users.js",
     type: "bar",
     value: "#age#",
     yAxis: {
