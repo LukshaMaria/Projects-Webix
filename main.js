@@ -1,3 +1,10 @@
+import userchart from './modules/charts.js';
+import form from './modules/forms.js';
+import maintable from './modules/maintable.js';
+import menu from './modules/menu.js';
+import producttable from './modules/producttable.js';
+import toolbar from './modules/toolbar.js';
+import usertable from './modules/usertable.js';
 const label = {
     view: "label",
     label: "The software is provided by <a href='#'>https://webix.com</a>. All right reserved (c)",
