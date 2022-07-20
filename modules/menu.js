@@ -20,3 +20,4 @@ const menu = {
         { view: "label", css: "connected", align: "center", label: `<span class="webix_icon mdi mdi-check"></span> Connected`, },
     ]
 };
+export default menu;
