@@ -3,7 +3,7 @@ const maintable =
     id: "datatable1",
     hover: "myhover",
     view: "datatable",
-    url: "http://localhost/Projects-Webix/data/data.js",
+    url: "./data/data.js",
     scroll: "y",
     select: true,
     autoConfig: true,
