@@ -19,7 +19,7 @@ const mainpart = {
     ]
 };
 webix.ready(function () {
-    const popup1 = webix.ui({
+    webix.ui({
         view: "popup",
         id: "popup1",
         width: 200,
