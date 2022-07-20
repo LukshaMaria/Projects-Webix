@@ -17,11 +17,16 @@ const form = {
                         const list = $$("datatable1");
                         const form = $$("form1");
                         const item_data = form.getValues();
-                        if (item_data.id) {
+                        if (item_data.id && form.validate()) {
                             list.updateItem(item_data.id, item_data);
+                            webix.message("Information was changed to datatable!");
                         }
-                        else {
+                        else if (form.validate()){
                             list.add(item_data);
+                            webix.message("Information was added to datatable!");
+                        }
+                        else{
+                            webix.message("Information wasn't added to datatable!");
                         }
 
                     }
