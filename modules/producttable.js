@@ -35,3 +35,4 @@ const producttable =
         }
     ]
 };
+export default producttable;
