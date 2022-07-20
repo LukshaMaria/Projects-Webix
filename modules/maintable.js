@@ -6,7 +6,6 @@ const maintable =
     url: "./data/data.js",
     scroll: "y",
     select: true,
-    autoConfig: true,
     topSplit: 2,
     navigation: true,
     columns: [
