@@ -4,6 +4,13 @@ const usertable =
     [
     {
         cols: [
+            {view:"text", id:"list_filter", 
+            on: {
+                onTimedKeyPress: function(){ 
+                    var value = this.getValue().toLowerCase();
+                    $$("usertable1").filter("#name#", value);
+                }
+            }},
             { view:"button", value:"Sort asc", click:function(){
                 $$('usertable1').sort('#age#','asc');
             } },
@@ -14,29 +21,32 @@ const usertable =
     },
     {
         id: "usertable1",
-        view: "datatable",
+        view: "list",
         url: "./data/users.js",
+        template:"#name# from #country# <span class='webix_icon mdi mdi-close remove-icon' title='Remove'></span>",  
         select: true,
-        columns: [
-            { id: "id", header: "Id", width: 50 },
-            { id: "name", header: [{ text: "Name" }, { content: "textFilter" }], fillspace: true, sort: "string", width: 200 },
-            { id: "age", header: ["Age", { content: "numberFilter" }], sort: "int", width: 50 },
-            { id: "country", header: [{ text: "Country" }, { content: "textFilter" }], fillspace: true, sort: "string", width: 150 },
-            { id: "Delete", template: "{common.trashIcon()}" }
-        ],
         onClick: {
-            "wxi-trash": function (e, id) {
-                this.remove(id);
-                return false;
+            "remove-icon": function (e, id) {
+                webix.confirm({
+                    title: "Delete data",
+                    text: "Do you want to delete information?"
+                }).then(
+                    function () {
+                        $$("usertable1").remove(id);
+                        return false;
+                        webix.message("Deleted");
+                    },
+                    function () {
+                        webix.message("Error");
+                    }
+                );
             }
         },
-        scheme: {
-            $change: function (item) {
-                {
-                    if (item.id < 6) {
-                        item.$css = "highlight";
-                    }
-                }
+        ready(){
+            for(let i=0; i<5; i++)
+            {
+                const id=this.getIdByIndex(i);
+                this.addCss(id, "highlight");
             }
         }
     }]
