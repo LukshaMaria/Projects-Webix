@@ -6,6 +6,7 @@ const maintable =
     url: "./data/data.js",
     scroll: "y",
     select:true,
+    form:"form1",
     columns: [
         { id: "id", css: "colls_css", header: "Id", width: 50 },
         { id: "title", header: [{ text: "Title" }, { content: "textFilter" }], fillspace: true, sort: "string", width: 250 },
