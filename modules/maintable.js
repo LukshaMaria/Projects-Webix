@@ -25,5 +25,11 @@ const maintable =
                 return false;
        });
     },
+    ready(){
+        $$("datatable1").attachEvent("onAfterSelect", function(id){
+            var item = this.getItem(id);
+            $$("form1").setValues(item);
+        })
+    }
 };
 export default maintable;
