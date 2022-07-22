@@ -12,9 +12,9 @@ const label = {
 };
 const mainpart = {
     cells: [
-        { id: "Dashboards", rows: [maintable, form] },
+        { id: "Dashboards", cols: [maintable, form] },
         { id: "Users", rows: [usertable, userchart] },
-        { id: "Products", rows: [producttable] },
+        { id: "Products", cols: [producttable] },
         { id: "Admin", template: "" }
     ]
 };
