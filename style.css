@@ -5,3 +5,14 @@
 .connected .webix_el_box{
     color:green;
 }
+.myhover{
+    background-color: rgb(157, 157, 157);
+}
+
+.colls_css{
+    background-color: rgb(244,245,249);
+}
+
+.highlight{
+    background-color: lightgreen;
+}
