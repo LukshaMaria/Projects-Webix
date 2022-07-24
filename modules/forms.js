@@ -16,7 +16,6 @@ const form = {
                     view: "button", value: "Save", css:"webix_primary", click: function () {
                         const list = $$("datatable1");
                         const form = $$("form1");
-                        const item_data = form.getValues();
                         if (form.validate()) {
                             const item_data = form.getValues();
                             if(item_data.id)
@@ -26,7 +25,15 @@ const form = {
                             }
                             else
                             {
-                                list.add(item_data);
+                                list.add({id:list.getLastId()+1, 
+                                    title: item_data.title,
+                                    year: item_data.year,
+                                    rating: item_data.rating,
+                                    votes: item_data.votes,
+                                    rank: item_data.rank,
+                                    category: item_data.category
+
+                                });
                                 webix.message("Information was added to datatable!");
                             }
                         }
