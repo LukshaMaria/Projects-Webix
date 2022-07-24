@@ -24,12 +24,13 @@ const maintable =
                 list.remove(id);
                 return false;
        });
+    }
     },
-    ready(){
-        $$("datatable1").attachEvent("onAfterSelect", function(id){
+    on:{
+        onAfterSelect(id){
             var item = this.getItem(id);
             $$("form1").setValues(item);
-        })
+        }
     }
 };
 export default maintable;

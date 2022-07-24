@@ -16,3 +16,7 @@
 .highlight{
     background-color: lightgreen;
 }
+.remove-icon {
+    float: right;
+    margin-top: 5px;
+}

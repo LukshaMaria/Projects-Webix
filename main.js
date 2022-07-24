@@ -4,7 +4,7 @@ import maintable from './modules/maintable.js';
 import menu from './modules/menu.js';
 import producttable from './modules/producttable.js';
 import toolbar from './modules/toolbar.js';
-import usertable from './modules/usertable.js';
+import userlist from './modules/userlist.js';
 const label = {
     view: "label",
     label: "The software is provided by <a href='#'>https://webix.com</a>. All right reserved (c)",
@@ -13,7 +13,7 @@ const label = {
 const mainpart = {
     cells: [
         { id: "Dashboards", cols: [maintable, form] },
-        { id: "Users", rows: [usertable, userchart] },
+        { id: "Users", rows: [userlist, userchart] },
         { id: "Products", cols: [producttable] },
         { id: "Admin", template: "" }
     ]
