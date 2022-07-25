@@ -34,7 +34,6 @@ const userlist =
                     function () {
                         $$("userlist1").remove(id);
                         webix.message("Deleted");
-                        return false;
                     },
                     function () {
                         webix.message("Error");
