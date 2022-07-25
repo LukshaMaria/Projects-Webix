@@ -21,6 +21,7 @@ const maintable =
         "wxi-trash": function (e, id) {
             const list = $$("datatable1");
             webix.confirm("Do you want to delete this item?", "confirm-warning").then(() => list.remove(id));
+            return false;
     }
     },
     on:{
