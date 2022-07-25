@@ -25,7 +25,7 @@ const form = {
                             }
                             else
                             {
-                                list.add({id:list.getLastId()+1, 
+                                list.add({ 
                                     title: item_data.title,
                                     year: item_data.year,
                                     rating: item_data.rating,
