@@ -1,4 +1,5 @@
 const userchart = {
+    id: "userchart",
     view: "chart",
     url: "./data/users.js",
     type: "bar",
@@ -12,7 +13,7 @@ const userchart = {
         }
     },
     xAxis: {
-        template: "#age#"
+        template: "#country#"
     }
 };
 export default userchart;

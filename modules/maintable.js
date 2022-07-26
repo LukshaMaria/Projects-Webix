@@ -5,8 +5,8 @@ const maintable =
     view: "datatable",
     url: "./data/data.js",
     scroll: "y",
-    select:true,
-    form:"form1",
+    select: true,
+    form: "form1",
     columns: [
         { id: "id", css: "colls_css", header: "Id", width: 50 },
         { id: "title", header: [{ text: "Title" }, { content: "textFilter" }], fillspace: true, sort: "string", width: 250 },
@@ -17,14 +17,18 @@ const maintable =
         { id: "category", header: "Category", width: 100 },
         { id: "del", template: "{common.trashIcon()}" }
     ],
+    scheme: {
+
+    },
     onClick: {
         "wxi-trash": function (e, id) {
             const list = $$("datatable1");
             webix.confirm("Do you want to delete this item?", "confirm-warning").then(() => list.remove(id));
-    }
+            return false;
+        }
     },
-    on:{
-        onAfterSelect(id){
+    on: {
+        onAfterSelect(id) {
             var item = this.getItem(id);
             $$("form1").setValues(item);
         }

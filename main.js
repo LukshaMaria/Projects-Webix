@@ -42,5 +42,14 @@ webix.ready(function () {
             label,
         ]
     });
+    $$("userchart").sync($$("usertable1"), function () {
+        this.group({
+            by: "country",
+            map: {
+                age: ["age", "sum"]
+            }
+        });
+    });
+    $$("datatable1").add({});
     $$("list1").select("Dashboards");
 })

@@ -1,18 +1,29 @@
-const producttable =
-{
-    view: "treetable",
-    id: "productable1",
-    select: true,
-    multiselect: "level",
-    drag: "move",
+webix.protoUI({
+    name: "edittree",
     columns: [
         { id: "id", header: "", width: 50 },
         {
-            id: "title", header: "Title",
-            template: "{common.icon()} {common.folder()} <span>#title#</span>", width: 200
+            id: "value", header: "Title",
+            template: "{common.icon()} {common.folder()} <span>#value#</span>", width: 200
         },
         { id: "price", header: "Price", width: 100 }
     ],
+}, webix.EditAbility, webix.ui.tree);
+
+var producttable = {
+    view: "edittree",
+    editable: true,
+    editor: "text",
+    editValue: "value",
     url: "./data/products.js",
+    rules: {
+        value: webix.rules.isNotEmpty,
+        value: (value) => (value.isNotNumber),
+    },
+    on: {
+        onValidationError: function (key, data) {
+            webix.message({ text: key + " field is incorrect", type: "error" });
+        }
+    }
 };
 export default producttable;
