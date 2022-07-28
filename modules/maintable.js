@@ -36,6 +36,9 @@ const maintable =
                 { id: "del", template: "{common.trashIcon()}" }
             ],
             scheme: {
+                $init:function(obj){
+                    obj.category=Math.floor(Math.random()* 4);
+                }
             },
             onClick: {
                 "wxi-trash": function (e, id) {
