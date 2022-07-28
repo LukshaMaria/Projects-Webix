@@ -37,7 +37,9 @@ const maintable =
             ],
             scheme: {
                 $init:function(obj){
-                    obj.category=Math.floor(Math.random()* 4);
+                    const max=5;
+                    const min =1;
+                    obj.category=Math.floor(Math.random()*(max - min) + min);
                 }
             },
             onClick: {
