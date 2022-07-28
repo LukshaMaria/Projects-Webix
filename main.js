@@ -1,6 +1,6 @@
 import userchart from './modules/charts.js';
 import form from './modules/forms.js';
-import maintable from './modules/maintable.js';
+import {maintable, collection} from './modules/maintable.js';
 import menu from './modules/menu.js';
 import producttable from './modules/producttable.js';
 import toolbar from './modules/toolbar.js';
@@ -50,7 +50,7 @@ webix.ready(function () {
             }
         });
     });
-    $$("list1").select("Dashboards");
+    $$("datatable1").sync($$(collection));
     $$("datatable1").registerFilter(
         $$("filter_tabbar"),
         {
@@ -71,4 +71,5 @@ webix.ready(function () {
             }
         }
     );
+    $$("list1").select("Dashboards");
 });
