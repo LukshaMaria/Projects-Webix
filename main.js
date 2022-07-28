@@ -50,6 +50,25 @@ webix.ready(function () {
             }
         });
     });
-    $$("datatable1").add({});
     $$("list1").select("Dashboards");
-})
+    $$("datatable1").registerFilter(
+        $$("filter_tabbar"),
+        {
+            columnId: "year", compare: function (value, filter, item) {
+                let year = value;
+                if (filter == 1) return year;
+                else if (filter == 2) return (year < 1980);
+                else if (filter == 3) return (year > 1980 && year < 2000);
+                else if (filter == 4) return year > 2000;
+            }
+        },
+        {
+            getValue: function (node) {
+                return node.getValue();
+            },
+            setValue: function (node, value) {
+                node.setValue(value);
+            }
+        }
+    );
+});
