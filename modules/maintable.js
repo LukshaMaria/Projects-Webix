@@ -4,7 +4,7 @@ const collection = new webix.DataCollection({
 
 const maintable =
 {
-    rows: [
+   rows: [
         {
             view: "tabbar",
             id: "filter_tabbar",
