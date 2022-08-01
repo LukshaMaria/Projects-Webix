@@ -1,6 +1,6 @@
 import userchart from './modules/charts.js';
 import form from './modules/forms.js';
-import { maintable} from './modules/maintable.js';
+import maintable from './modules/maintable.js';
 import menu from './modules/menu.js';
 import producttable from './modules/producttable.js';
 import toolbar from './modules/toolbar.js';
