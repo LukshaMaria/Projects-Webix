@@ -13,19 +13,17 @@ const form = {
         {
             margin: 5, cols: [
                 {
-                    view: "button", value: "Save", css:"webix_primary", click: function () {
+                    view: "button", value: "Save", css: "webix_primary", click: function () {
                         const list = $$("datatable1");
                         const form = $$("form1");
                         if (form.validate()) {
                             const item_data = form.getValues();
-                            if(item_data.id)
-                            {
+                            if (item_data.id) {
                                 list.updateItem(item_data.id, item_data);
                                 webix.message("Information was changed to datatable!");
                             }
-                            else
-                            {
-                                list.add({ 
+                            else {
+                                list.add({
                                     title: item_data.title,
                                     year: item_data.year,
                                     rating: item_data.rating,
@@ -37,13 +35,13 @@ const form = {
                                 webix.message("Information was added to datatable!");
                             }
                         }
-                        else{
+                        else {
                             webix.message("Information wasn't added to datatable!");
                         }
 
                     }
                 },
-                                {
+                {
                     view: "button", value: "Clear", click: function () {
                         const form = $$("form1");
                         webix.confirm({

@@ -1,8 +1,8 @@
 webix.protoUI({
     name: "edittree",
     defaults: {
-            template: "{common.icon()} {common.folder()} #title#", width: 200
-     }
+        template: "{common.icon()} {common.folder()} #title#", width: 200
+    }
     // columns: [
     //     { id: "id", header: "", width: 50 },
     //     {
@@ -20,8 +20,7 @@ var producttable = {
     editValue: "title",
     url: "./data/products.js",
     rules: {
-        value: webix.rules.isNotEmpty,
-        value: (value) => (value.isNotNumber),
+        title: webix.rules.isNotEmpty,
     },
     on: {
         onValidationError: function (key, data) {

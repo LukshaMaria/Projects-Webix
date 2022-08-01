@@ -1,6 +1,6 @@
 const collection = new webix.DataCollection({
-    url:"./data/categories.js"
-  });
+    url: "./data/categories.js"
+});
 
 const maintable =
 {
@@ -36,14 +36,12 @@ const maintable =
                 { id: "rating", header: "Rating", width: 100 },
                 { id: "votes", header: ["Votes", { content: "numberFilter" }], width: 100, sort: "int" },
                 { id: "rank", header: "Rank", width: 50 },
-                { id: "category", header: "Category", width: 100 },
+                { id: "category", header: "Category", width: 100, collection: collection },
                 { id: "delete", template: "{common.trashIcon()}" }
             ],
             scheme: {
-                $init:function(obj){
-                    const max=5;
-                    const min =1;
-                    obj.category=Math.floor(Math.random()*(max - min) + min);                    
+                $init: function (obj) {
+                    obj.category = Math.floor(Math.random() * (5 - 1) + 1);
                 }
             },
             onClick: {
@@ -62,4 +60,4 @@ const maintable =
         }
     ]
 };
-export {maintable, collection};
+export { maintable, collection };

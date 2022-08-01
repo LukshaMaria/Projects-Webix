@@ -1,6 +1,6 @@
 import userchart from './modules/charts.js';
 import form from './modules/forms.js';
-import {maintable, collection} from './modules/maintable.js';
+import { maintable, collection } from './modules/maintable.js';
 import menu from './modules/menu.js';
 import producttable from './modules/producttable.js';
 import toolbar from './modules/toolbar.js';
@@ -46,28 +46,29 @@ webix.ready(function () {
         this.group({
             by: "country",
             map: {
-                age: ["age", "sum"]
+                age: ["age", "count"]
             }
         });
-    });
-    $$("datatable1").sync($$(collection));
+    }); 
     $$("datatable1").registerFilter(
         $$("filter_tabbar"),
         {
             columnId: "year", compare: function (value, filter, item) {
                 let year = value;
-                if (filter == 1) return year;
-                else if (filter == 2) return (year < 1980);
-                else if (filter == 3) return (year > 1980 && year < 2000);
-                else if (filter == 4) return year > 2000;
+                switch (filter) {
+                    case 1: return year;
+                    case 2: return (year < 1980);
+                    case 3: return (year > 1980 && year < 2000);
+                    case 4: return year > 2000;
+                }
             }
         },
         {
-            getValue: function (node) {
-                return node.getValue();
+            getValue: function (view) {
+                return view.getValue();
             },
-            setValue: function (node, value) {
-                node.setValue(value);
+            setValue: function (view, value) {
+                view.setValue(value);
             }
         }
     );
