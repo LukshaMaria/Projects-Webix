@@ -60,4 +60,4 @@ const maintable =
         }
     ]
 };
-export { maintable, collection };
+export { maintable };
