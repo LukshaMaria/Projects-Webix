@@ -48,8 +48,13 @@ webix.ready(function () {
             map: {
                 age: ["age", "count"]
             }
-        });
-    }); 
+        }),
+        this.sort({
+            by:"#age#",
+            dir:"desc",
+            as:"int"
+        })
+    });
     $$("datatable1").registerFilter(
         $$("filter_tabbar"),
         {
