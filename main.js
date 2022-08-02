@@ -56,10 +56,10 @@ webix.ready(function () {
             columnId: "year", compare: function (value, filter, item) {
                 let year = value;
                 switch (filter) {
-                    case 1: return year;
-                    case 2: return (year < 1980);
-                    case 3: return (year > 1980 && year < 2000);
-                    case 4: return year > 2000;
+                    case '1': return true;
+                    case '2': return (year < 1980);
+                    case '3': return (year > 1980 && year < 2000);
+                    case '4': return (year > 2000);
                 }
             }
         },
