@@ -5,7 +5,7 @@ webix.protoUI({
     }
 }, webix.EditAbility, webix.ui.tree);
 
-var producttable = {
+const producttable = {
     view: "edittree",
     editable: true,
     editor: "text",

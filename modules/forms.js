@@ -1,4 +1,4 @@
-const form = {
+const main_form = {
     view: "form",
     id: "form1",
     width: 400,
@@ -14,10 +14,10 @@ const form = {
             margin: 5, cols: [
                 {
                     view: "button", value: "Save", css: "webix_primary", click: function () {
+                        const form1 = $$("form1");
                         const list = $$("datatable1");
-                        const form = $$("form1");
-                        if (form.validate()) {
-                            const item_data = form.getValues();
+                        if (form1.validate()) {
+                            const item_data = form1.getValues();
                             if (item_data.id) {
                                 list.updateItem(item_data.id, item_data);
                                 webix.message("Information was changed to datatable!");
@@ -43,15 +43,15 @@ const form = {
                 },
                 {
                     view: "button", value: "Clear", click: function () {
-                        const form = $$("form1");
+                        const form1 = $$("form1");
                         webix.confirm({
                             title: "Clear form",
                             text: "Do you want to clear information in form?"
                         }).then(
                             function () {
                                 webix.message("Confirmed");
-                                form.clear();
-                                form.clearValidation();
+                                form1.clear();
+                                form1.clearValidation();
                             },
                             function () {
                                 webix.message("Rejected");
@@ -76,4 +76,4 @@ const form = {
         }
     }
 };
-export default form;
+export default main_form;

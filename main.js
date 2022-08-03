@@ -1,5 +1,5 @@
 import userchart from './modules/charts.js';
-import form from './modules/forms.js';
+import main_form from './modules/forms.js';
 import maintable from './modules/maintable.js';
 import menu from './modules/menu.js';
 import producttable from './modules/producttable.js';
@@ -12,7 +12,7 @@ const label = {
 };
 const mainpart = {
     cells: [
-        { id: "Dashboards", cols: [maintable, form] },
+        { id: "Dashboards", cols: [maintable, main_form] },
         { id: "Users", rows: [userlist, userchart] },
         { id: "Products", cols: [producttable] },
         { id: "Admin", template: "" }
