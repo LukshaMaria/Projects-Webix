@@ -11,10 +11,10 @@ const menu = {
             autoheight: true,
             on: {
                 onAfterSelect: function (id) {
-                    $$(global_id.list_id).show();
+                    $$(id).show();
                 }
             },
-            data: ["Dashboards", "Users", "Products", "Locations"],
+            data: ["Dashboards", "Users", "Products", "Admin"],
             width: 300
         },
         {},

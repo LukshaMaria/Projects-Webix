@@ -49,10 +49,10 @@ webix.ready(function () {
             map: {
                 age: ["age", "count"]
             }
-        }),
+        })
         this.sort({
             by:"#age#",
-            dir:"desc",
+            dir:"asc",
             as:"int"
         })
     });
