@@ -1,10 +1,11 @@
 import userchart from './modules/charts.js';
-import main_form from './modules/forms.js';
+import mainform from './modules/forms.js';
 import maintable from './modules/maintable.js';
 import menu from './modules/menu.js';
 import producttable from './modules/producttable.js';
 import toolbar from './modules/toolbar.js';
-import userlist from './modules/userlist.js';
+import usertable from './modules/userlist.js';
+import {global_id} from "./modules/values.js";
 const label = {
     view: "label",
     label: "The software is provided by <a href='#'>https://webix.com</a>. All right reserved (c)",
@@ -12,8 +13,8 @@ const label = {
 };
 const mainpart = {
     cells: [
-        { id: "Dashboards", cols: [maintable, main_form] },
-        { id: "Users", rows: [userlist, userchart] },
+        { id: "Dashboards", cols: [maintable, mainform] },
+        { id: "Users", rows: [usertable, userchart] },
         { id: "Products", cols: [producttable] },
         { id: "Admin", template: "" }
     ]
@@ -21,7 +22,7 @@ const mainpart = {
 webix.ready(function () {
     webix.ui({
         view: "popup",
-        id: "popup1",
+        id: global_id.popup_id,
         width: 200,
         body: {
             view: "list",
@@ -42,7 +43,7 @@ webix.ready(function () {
             label,
         ]
     });
-    $$("userchart").sync($$("usertable1"), function () {
+    $$(global_id.chart_id).sync($$(global_id.userdatatable_id), function () {
         this.group({
             by: "country",
             map: {
@@ -55,8 +56,8 @@ webix.ready(function () {
             as:"int"
         })
     });
-    $$("datatable1").registerFilter(
-        $$("filter_tabbar"),
+    $$(global_id.maindatatable_id).registerFilter(
+        $$(global_id.tabbar_id),
         {
             columnId: "year", compare: function (value, filter, item) {
                 let year = value;
@@ -77,5 +78,5 @@ webix.ready(function () {
             }
         }
     );
-    $$("list1").select("Dashboards");
+    $$(global_id.list_id).select("Dashboards");
 });

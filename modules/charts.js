@@ -1,5 +1,7 @@
+import { global_id } from "./values.js";
+
 const userchart = {
-    id: "userchart",
+    id: global_id.chart_id,
     view: "chart",
     type: "bar",
     value: "#age#",

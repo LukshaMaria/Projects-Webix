@@ -1,6 +1,7 @@
-const main_form = {
+import {global_id} from "./values.js";
+const mainform = {
     view: "form",
-    id: "form1",
+    id: global_id.form_id,
     width: 400,
     elements: [
         { type: "section", template: "EDIT FILMS" },
@@ -9,15 +10,14 @@ const main_form = {
         { view: "text", name: "rating", label: "Rating" },
         { view: "text", name: "votes", label: "Votes" },
         { view: "text", name: "rank", label: "Rank" },
-        { view: "text", name: "category", label: "Category" },
         {
             margin: 5, cols: [
                 {
                     view: "button", value: "Save", css: "webix_primary", click: function () {
-                        const form1 = $$("form1");
-                        const list = $$("datatable1");
-                        if (form1.validate()) {
-                            const item_data = form1.getValues();
+                        const form = $$(global_id.form_id);
+                        const list = $$(global_id.maindatatable_id);
+                        if (form.validate()) {
+                            const item_data = form.getValues();
                             if (item_data.id) {
                                 list.updateItem(item_data.id, item_data);
                                 webix.message("Information was changed to datatable!");
@@ -43,15 +43,15 @@ const main_form = {
                 },
                 {
                     view: "button", value: "Clear", click: function () {
-                        const form1 = $$("form1");
+                        const form = $$(global_id.form_id);
                         webix.confirm({
                             title: "Clear form",
                             text: "Do you want to clear information in form?"
                         }).then(
                             function () {
                                 webix.message("Confirmed");
-                                form1.clear();
-                                form1.clearValidation();
+                                form.clear();
+                                form.clearValidation();
                             },
                             function () {
                                 webix.message("Rejected");
@@ -76,4 +76,4 @@ const main_form = {
         }
     }
 };
-export default main_form;
+export default mainform;

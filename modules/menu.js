@@ -1,16 +1,17 @@
+import { global_id } from "./values.js";
 const menu = {
     css: "list",
     rows: [
         {
             view: "list",
-            id: "list1",
+            id: global_id.list_id,
             css: "list",
             select: true,
             scroll: false,
             autoheight: true,
             on: {
                 onAfterSelect: function (id) {
-                    $$(id).show();
+                    $$(global_id.list_id).show();
                 }
             },
             data: ["Dashboards", "Users", "Products", "Locations"],

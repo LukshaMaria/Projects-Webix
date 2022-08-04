@@ -1,3 +1,5 @@
+import {global_id} from "./values.js";
+
 const collection = new webix.DataCollection({
     url: "./data/categories.js"
 });
@@ -7,7 +9,7 @@ const maintable =
    rows: [
         {
             view: "tabbar",
-            id: "filter_tabbar",
+            id: global_id.tabbar_id,
             value: "listView",
             options: [
                 { "id": "1", "value": "All" },
@@ -17,12 +19,12 @@ const maintable =
             ],
             on: {
                 onChange: function () {
-                    $$("datatable1").filterByAll();
+                    $$(global_id.maindatatable_id).filterByAll();
                 }
             }
         },
         {
-            id: "datatable1",
+            id: global_id.maindatatable_id,
             view: "datatable",
             url: "./data/data.js",
             select: true,
@@ -46,7 +48,7 @@ const maintable =
             },
             onClick: {
                 "wxi-trash": function (e, id) {
-                    const list = $$("datatable1");
+                    const list = $$(global_id.maindatatable_id);
                     webix.confirm("Do you want to delete this item?", "confirm-warning").then(() => list.remove(id));
                     return false;
                 }
@@ -54,7 +56,7 @@ const maintable =
             on: {
                 onAfterSelect(id) {
                     var item = this.getItem(id);
-                    $$("form1").setValues(item);
+                    $$(global_id.form_id).setValues(item);
                 }
             }
         }
