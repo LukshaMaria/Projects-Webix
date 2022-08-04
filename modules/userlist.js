@@ -5,6 +5,10 @@ webix.protoUI({
   name: "editableList"
 }, webix.EditAbility, webix.ui.list);
 
+const user_collection = new webix.DataCollection({
+  url: "./data/users.js"
+});
+
 const usertable =
 {
   rows:
@@ -88,4 +92,4 @@ const usertable =
       },
     ]
 };
-export default usertable;
+export {usertable, user_collection};
