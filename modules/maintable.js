@@ -1,4 +1,4 @@
-import {global_id} from "./values.js";
+import { global_id } from "./values.js";
 
 const collection = new webix.DataCollection({
     url: "./data/categories.js"
@@ -6,7 +6,7 @@ const collection = new webix.DataCollection({
 
 const maintable =
 {
-   rows: [
+    rows: [
         {
             view: "tabbar",
             id: global_id.tabbar_id,

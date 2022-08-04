@@ -1,4 +1,4 @@
-import {global_id} from "./values.js";
+import { global_id } from "./values.js";
 const mainform = {
     view: "form",
     id: global_id.form_id,

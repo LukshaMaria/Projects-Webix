@@ -1,4 +1,4 @@
-import {global_id} from "./values.js";
+import { global_id } from "./values.js";
 webix.protoUI({
     name: "edittree",
     defaults: {

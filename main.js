@@ -5,7 +5,7 @@ import menu from './modules/menu.js';
 import producttable from './modules/producttable.js';
 import toolbar from './modules/toolbar.js';
 import usertable from './modules/userlist.js';
-import {global_id} from "./modules/values.js";
+import { global_id } from "./modules/values.js";
 const label = {
     view: "label",
     label: "The software is provided by <a href='#'>https://webix.com</a>. All right reserved (c)",
@@ -51,9 +51,9 @@ webix.ready(function () {
             }
         })
         this.sort({
-            by:"#age#",
-            dir:"asc",
-            as:"int"
+            by: "#age#",
+            dir: "asc",
+            as: "int"
         })
     });
     $$(global_id.maindatatable_id).registerFilter(

@@ -1,10 +1,12 @@
-import {global_id} from "./values.js";
+import { global_id } from "./values.js";
 const toolbar = {
     view: "toolbar",
     css: "webix_dark",
     elements: [
-        { view: "label", 
-        css: "label_toolbar", label: "My App" },
+        {
+            view: "label",
+            css: "label_toolbar", label: "My App"
+        },
         {},
         {
             view: "button",
