@@ -4,12 +4,8 @@ const admintable = {
     cols: [
         {
             id: global_id.admintable_id,
-            view: "datatable",
-            columns: [
-                { id: "id", header: "Id" },
-                { id: "value", header: "Type", 
-                template:"#value# <span class='webix_icon mdi mdi-close remove-icon' title='Remove'></span>", width:650}
-            ],
+            view: "list",
+            template:"#id#. #value# <span class='webix_icon mdi mdi-close remove-icon' title='Remove'></span>",
             url: "./data/categories.js",
             select: true,
             scroll: "y",

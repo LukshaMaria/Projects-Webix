@@ -44,6 +44,7 @@ webix.ready(function () {
             label,
         ]
     });
+    
     $$(global_id.chart_id).sync($$(global_id.userdatatable_id), function () {
         this.group({
             by: "country",
@@ -79,7 +80,11 @@ webix.ready(function () {
             }
         }
     );
+    var list = $$("category").getPopup().getList();
+    list.define("template", "#value#");
+
     $$(global_id.list_id).select("Dashboards");
+    list.sync(category_collection);
     $$(global_id.admintable_id).sync(category_collection);
     $$(global_id.admintable_id).bind(global_id.adminform_id);
 });
