@@ -1,18 +1,20 @@
+import { global_id } from "./values.js";
+
 const userchart = {
+    id: global_id.chart_id,
     view: "chart",
-    url: "./data/users.js",
     type: "bar",
     value: "#age#",
     yAxis: {
         start: 0,
-        step: 10,
-        end: 100,
+        step: 5,
+        end: 10,
         template: function (value) {
-            return (value % 20 ? "" : value);
+            return (value % 5 ? "" : value);
         }
     },
     xAxis: {
-        template: "#age#"
+        template: "#country#"
     }
 };
 export default userchart;

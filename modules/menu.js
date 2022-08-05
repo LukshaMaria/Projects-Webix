@@ -1,9 +1,10 @@
+import { global_id } from "./values.js";
 const menu = {
     css: "list",
     rows: [
         {
             view: "list",
-            id: "list1",
+            id: global_id.list_id,
             css: "list",
             select: true,
             scroll: false,
@@ -13,7 +14,7 @@ const menu = {
                     $$(id).show();
                 }
             },
-            data: ["Dashboards", "Users", "Products", "Locations"],
+            data: ["Dashboards", "Users", "Products", "Admin"],
             width: 300
         },
         {},
