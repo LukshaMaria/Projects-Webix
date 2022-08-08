@@ -7,4 +7,6 @@ export const global_id = {
     chart_id: "chart_1",
     list_id: "list_1",
     list_filter_id: "list_2",
+    admintable_id:"datatable_3",
+    adminform_id:"form_2",
 };

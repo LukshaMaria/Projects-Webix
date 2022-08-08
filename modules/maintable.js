@@ -1,6 +1,6 @@
 import { global_id } from "./values.js";
 
-const collection = new webix.DataCollection({
+const category_collection = new webix.DataCollection({
     url: "./data/categories.js"
 });
 
@@ -38,7 +38,7 @@ const maintable =
                 { id: "rating", header: "Rating", width: 100 },
                 { id: "votes", header: ["Votes", { content: "numberFilter" }], width: 100, sort: "int" },
                 { id: "rank", header: "Rank", width: 50 },
-                { id: "category", header: "Category", width: 100, collection: collection },
+                { id: "category", header: "Category", width: 100, collection: category_collection },
                 { id: "delete", template: "{common.trashIcon()}" }
             ],
             scheme: {
@@ -62,4 +62,4 @@ const maintable =
         }
     ]
 };
-export default maintable;
+export {maintable, category_collection};

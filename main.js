@@ -1,10 +1,11 @@
 import userchart from './modules/charts.js';
 import mainform from './modules/forms.js';
-import maintable from './modules/maintable.js';
+import {maintable, category_collection} from './modules/maintable.js';
 import menu from './modules/menu.js';
 import producttable from './modules/producttable.js';
 import toolbar from './modules/toolbar.js';
-import usertable from './modules/userlist.js';
+import {usertable, user_collection} from './modules/userlist.js';
+import admintable from './modules/admin.js';
 import { global_id } from "./modules/values.js";
 const label = {
     view: "label",
@@ -16,7 +17,7 @@ const mainpart = {
         { id: "Dashboards", cols: [maintable, mainform] },
         { id: "Users", rows: [usertable, userchart] },
         { id: "Products", cols: [producttable] },
-        { id: "Admin", template: "" }
+        { id: "Admin", cols: [admintable] }
     ]
 };
 webix.ready(function () {
@@ -43,6 +44,7 @@ webix.ready(function () {
             label,
         ]
     });
+    
     $$(global_id.chart_id).sync($$(global_id.userdatatable_id), function () {
         this.group({
             by: "country",
@@ -78,5 +80,14 @@ webix.ready(function () {
             }
         }
     );
+    var list = $$("category").getPopup().getList();
+    list.define("template", "#value#");
+
     $$(global_id.list_id).select("Dashboards");
+    list.sync(category_collection);
+    $$(global_id.admintable_id).sync(category_collection);
+    $$(user_collection).sync($$(global_id.userdatatable_id));
+    $$(user_collection).sync($$(global_id.userdatatable_id));
+    $$(global_id.maindatatable_id).bind(global_id.form_id);
+    $$(global_id.admintable_id).bind(global_id.adminform_id);
 });

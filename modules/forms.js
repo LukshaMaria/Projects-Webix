@@ -11,6 +11,13 @@ const mainform = {
         { view: "text", name: "votes", label: "Votes" },
         { view: "text", name: "rank", label: "Rank" },
         {
+            view: "combo",
+            id: "category",
+            name: "category",
+            label: "Category",
+            options: []
+        },
+        {
             margin: 5, cols: [
                 {
                     view: "button", value: "Save", css: "webix_primary", click: function () {

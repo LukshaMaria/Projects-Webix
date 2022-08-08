@@ -5,6 +5,10 @@ webix.protoUI({
   name: "editableList"
 }, webix.EditAbility, webix.ui.list);
 
+const user_collection = new webix.DataCollection({
+  url: "./data/users.js"
+});
+
 const usertable =
 {
   rows:
@@ -68,7 +72,7 @@ const usertable =
               text: "Do you want to delete information?"
             }).then(
               function () {
-                $$("usertable1").remove(id);
+                $$(global_id.userdatatable_id).remove(id);
                 webix.message("Deleted");
               },
               function () {
@@ -88,4 +92,4 @@ const usertable =
       },
     ]
 };
-export default usertable;
+export {usertable, user_collection};
