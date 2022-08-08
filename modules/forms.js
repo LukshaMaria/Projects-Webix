@@ -13,6 +13,7 @@ const mainform = {
         {
             view: "combo",
             id: "category",
+            name: "category",
             label: "Category",
             options: []
         },
@@ -27,6 +28,7 @@ const mainform = {
                             if (item_data.id) {
                                 list.updateItem(item_data.id, item_data);
                                 webix.message("Information was changed to datatable!");
+                                webix.message(JSON.stringify((form).getValues(), null, 4));
                             }
                             else {
                                 list.add({

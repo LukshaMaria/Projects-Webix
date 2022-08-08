@@ -72,7 +72,7 @@ const usertable =
               text: "Do you want to delete information?"
             }).then(
               function () {
-                $$("usertable1").remove(id);
+                $$(global_id.userdatatable_id).remove(id);
                 webix.message("Deleted");
               },
               function () {
