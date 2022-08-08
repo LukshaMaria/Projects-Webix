@@ -1,3 +1,4 @@
+import { category_collection } from "./maintable.js";
 import { global_id } from "./values.js";
 
 const admintable = {
@@ -42,12 +43,15 @@ const admintable = {
                 {
                     margin: 5, cols: [
                         {
-                            view: "button", value: "Add", css: "webix_primary", click: function () {
+                            view: "button", 
+                            value: "Add", 
+                            css: "webix_primary", 
+                            click: function () {
                                 const list = $$(global_id.admintable_id);
                                 const form = $$(global_id.adminform_id);
                                 if (form.validate()) {
                                     const item_data = form.getValues();
-                                        list.add({
+                                        category_collection.add({
                                             value: item_data.value,
                                         });
                                         webix.message("Information was added to datatable!");

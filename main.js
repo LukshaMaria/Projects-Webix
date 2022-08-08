@@ -86,6 +86,8 @@ webix.ready(function () {
     $$(global_id.list_id).select("Dashboards");
     list.sync(category_collection);
     $$(global_id.admintable_id).sync(category_collection);
+    $$(user_collection).sync($$(global_id.userdatatable_id));
+    $$(user_collection).sync($$(global_id.userdatatable_id));
     $$(global_id.maindatatable_id).bind(global_id.form_id);
     $$(global_id.admintable_id).bind(global_id.adminform_id);
 });
